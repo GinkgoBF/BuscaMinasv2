@@ -197,7 +197,7 @@ public class Tablero {
                    }                   
                    
                }}
-               
+             //hola  
              
                if(coldescen>=1){
                coldescen = col-i;
