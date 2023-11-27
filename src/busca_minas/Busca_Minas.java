@@ -69,7 +69,9 @@ public class Busca_Minas {
           System.out.println("TE HA EXLPOTADO UNA MINA. HAS PERDIDO");
           }else{
                fin=resuelto(tablero,tam);
+               if(fin){
                System.out.println("ENHORABUENA HAS GANADO!!");
+               }
           }
           
         }while(!fin);
@@ -77,14 +79,15 @@ public class Busca_Minas {
        
        
        public static boolean resuelto(Tablero tablero, int tam){
+         boolean result = true;
          for(int i = 1 ; i < tam ; i++){
             for(int j = 1 ; j < tam ; j++){
                 Casilla casilla=tablero.getTablero()[i][j];
                 if(!casilla.isAbierto() && !casilla.isMarcado()){
-                    return false;
+                    result = false;
                 }
             }}
-        return true;}
+        return result;}
 
 
 }
