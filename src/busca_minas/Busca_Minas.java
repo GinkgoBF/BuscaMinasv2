@@ -43,13 +43,12 @@ public class Busca_Minas {
        public static void jugar(Scanner entrada){
         Tablero tablero = new Tablero();
         tablero.iniciarTablero();
-        tablero.mostrarTablero();
-        //System.out.println();
         tablero.contarMinas();
-        tablero.iniciarTableroUsuario();
+        tablero.mostrarTablero();
+    //    tablero.iniciarTableroUsuario();
         boolean fin = false;
         do{
-          tablero.mostrarTableroUsuario();
+          tablero.mostrarTablero();
           System.out.println("Elige una opcion:");
           System.out.println("1.Abrir");
           System.out.println("2.Marcar");
