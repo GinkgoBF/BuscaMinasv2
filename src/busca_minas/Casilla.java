@@ -24,6 +24,7 @@ public class Casilla extends Button {
         this.mina = mina;
         this.abierto = abierto;
         this.contador_minas = contador_minas;
+        this.marcado = false;
     }
 
     public Casilla() {
@@ -34,36 +35,7 @@ public class Casilla extends Button {
         
     }
 
-    
-      private void explotacasilla() {
-        if (!mina) {
-            if (contador_minas == 0) {
-                abrirlados(fila, col);
-            } else {
-                abierto=true;
-                this.setEnabled(false);
-            }
-
-            return false;
-        } else {
-            return true;
-        }
-    }
       
-        private void abrirlados(int fila_1, int col_1) {
-        for (int x = fila_1 - 1; x <= fila_1 + 1; x++) {
-            for (int z = col_1 - 1; z <= col_1 + 1; z++) {
-                if (x >= 0 && x < 11 && z >= 0 && z < 11) {
-                    if (!tablero[x][z].isAbierto()) {
-                        tablero[x][z].setAbierto(true);
-                        if (tablero[x][z].getContador_minas() == 0) {
-                            abrirlados(x, z);
-                        }
-                    }
-                }
-            }
-        }
-    }
 
     public boolean isMarcado() {
         return marcado;
@@ -73,21 +45,7 @@ public class Casilla extends Button {
         this.marcado = marcado;
     }
 
-    public int getFila() {
-        return fila;
-    }
-
-    public void setFila(int fila) {
-        this.fila = fila;
-    }
-
-    public int getCol() {
-        return col;
-    }
-
-    public void setCol(int col) {
-        this.col = col;
-    }
+  
 
     public AccessibleContext getAccessibleContext() {
         return accessibleContext;

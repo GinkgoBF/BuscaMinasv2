@@ -35,17 +35,6 @@ public class Tablero {
     /**
      * Esta función permite al usuairo indicar una casilla en la que el cree que esta la mina, para ello cambia el atributo marcado de la casilla del tablero
      */
-    public void marcarcasilla() {
-        Scanner entrada = new Scanner(System.in);
-        System.out.print("Dime la fila de la casilla a Marcar");
-        int fila = entrada.nextInt();
-        entrada.nextLine();
-        System.out.print("Dime la columna de la casilla a Marcar");
-        int col = entrada.nextInt();
-        entrada.nextLine();
-        tablero[fila][col].setMarcado(true);
-
-    }
 
     
     /**
@@ -53,30 +42,7 @@ public class Tablero {
      * Como no se crear una función que genere números aleatorios del 1 al 10 tengo una funcion que genera numeros del 0 al 10
      * en caso de salir 0 le sumo uno.
      */
-    public void iniciarTablero() {
-        //this.tableroJuego= new Casilla[tam+1][tam+1];
-        for (int i = 1; i <= num_minas; i++) {
-            System.out.println("Intento de minaxd");
-            boolean puesto = false;
-            do {
-                int fil = (int) Math.floor(Math.random() * 11);
-                int col = (int) Math.floor(Math.random() * 11);
-                if (fil == 0) {
-                    fil = fil + 1;
-                }
-                if (col == 0) {
-                    col = col + 1;
-                }
-                if (!tablero[fil][col].isMina()) {
-                    tablero[fil][col].setMina(true);
-                    puesto = true;
-                    System.out.println("Mina Puesta quedan " + (num_minas - i));
-                } else {
-                    System.out.println("Mina NO Puesta quedan " + (num_minas - i));
-                }
-            } while (!puesto);
-        }
-    }
+
 
     
     /**
@@ -108,21 +74,7 @@ public class Tablero {
      * numero de minas.
      * 
      */
-    public void contarMinas() {
-        for (int i = 1; i < tam; i++) {
-            for (int j = 1; j < tam; j++) {
-                if (tablero[i][j].isMina()) {
-                    System.out.println("Encontré una mina");
-                    for (int x = i - 1; x <= i + 1; x++) {
-                        for (int z = j - 1; z <= j + 1; z++) {
 
-                            tablero[x][z].setContador_minas(tablero[x][z].getContador_minas() + 1);
-                        }
-                    }
-                }
-            }
-        }
-    }
 
     
     /**

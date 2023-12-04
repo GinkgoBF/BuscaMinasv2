@@ -68,7 +68,7 @@ public class Busca_Minas {
             boolean derrota = false;
             switch (jugada) {
                 case 1:
-                    derrota = tablero.explotacasilla();
+                   // derrota = tablero.explotacasilla();
                     break;
                 case 2:
                     tablero.marcarcasilla();
