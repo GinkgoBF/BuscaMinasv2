@@ -134,13 +134,13 @@ public class Ventana extends JFrame {
         for (int i = 1; i < 11; i++) {
             for (int j = 1; j < 11; j++) {
                 if (tablero[i][j].isMina()) {
-                    System.out.println("Encontré una mina");
-                    if (i > 1 && i < 10 && j > 1 && j < 10) {
+                    System.out.println("Encontré una mina en fila: " +i+" col: " + j);
+                    if (i > 0 && i < 11 && j > 0 && j < 11) {
                         for (int x = i - 1; x <= i + 1; x++) {
                             for (int z = j - 1; z <= j + 1; z++) {
-
+                                                    if (i > 1 && i < 10 && j > 1 && j < 10){
                                 tablero[x][z].setContador_minas(tablero[x][z].getContador_minas() + 1);
-                            }
+                            }}
                         }
                     }
                 }
