@@ -53,8 +53,8 @@ public class Busca_Minas {
     public static void jugar(Scanner entrada) {
         int tam = 11;
         Tablero tablero = new Tablero(tam);
-        tablero.iniciarTablero();
-        tablero.contarMinas();
+     //   tablero.iniciarTablero();
+     //   tablero.contarMinas();
         tablero.mostrarTablero();
         //    tablero.iniciarTableroUsuario();
         boolean fin = false;
@@ -71,7 +71,7 @@ public class Busca_Minas {
                    // derrota = tablero.explotacasilla();
                     break;
                 case 2:
-                    tablero.marcarcasilla();
+                //    tablero.marcarcasilla();
                     break;
             }
             if (derrota) {

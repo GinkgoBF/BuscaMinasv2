@@ -49,6 +49,7 @@ public class Ventana extends JFrame {
         colocarBotones();
         iniciarTablero();
         contarMinas();
+        mostrartumadre();
     }
 
     private void colocarBotones() {
@@ -57,7 +58,7 @@ public class Ventana extends JFrame {
             for (int j = 1; j < 11; j++) {
                 final int jfinal = j;
                 final int ifinal = i;
-                tablero[i][j] = new Casilla();
+                tablero[i][j] = new Casilla(i,j);
                 tablero[i][j].setEnabled(true);
 
                 /* tablero[i][j].addActionListener(new ActionListener() {
@@ -108,7 +109,7 @@ public class Ventana extends JFrame {
     }
 
     public void iniciarTablero() {
-        int num_minas = 5;
+        int num_minas = 7;
         int fil = 0;
         int col = 0;
         //this.tableroJuego= new Casilla[tam+1][tam+1];
@@ -130,21 +131,25 @@ public class Ventana extends JFrame {
         }
     }
 
+    public void mostrartumadre(){
+            for (int i = 1; i < 11; i++) {
+            for (int j = 1; j < 11; j++) {
+            System.out.println(tablero[i][j].toString());
+            }}
+    }
     public void contarMinas() {
         for (int i = 1; i < 11; i++) {
             for (int j = 1; j < 11; j++) {
                 if (tablero[i][j].isMina()) {
-                    System.out.println("Encontré una mina en fila: " +i+" col: " + j);
-                    if (i > 0 && i < 11 && j > 0 && j < 11) {
                         for (int x = i - 1; x <= i + 1; x++) {
                             for (int z = j - 1; z <= j + 1; z++) {
-                                                    if (i > 1 && i < 10 && j > 1 && j < 10){
+                              if ((x >= 1) && (x <= 10) && (z >= 1) && (z <= 10)){
                                 tablero[x][z].setContador_minas(tablero[x][z].getContador_minas() + 1);
                             }}
                         }
                     }
                 }
-            }
+            
         }
     }
 
@@ -197,19 +202,7 @@ public class Ventana extends JFrame {
         }
     }
 
-    /* private void colocarBotones(){
-        for(int i = 1; i<11;i++){
-        JButton boton1 = new JButton();
-       // boton1.setBounds(100,100,100,40);
-        panel.add(boton1);
-        boton1.setEnabled(true);//Habilitar, deshabilitar 
-        boton1.setText("HOLA");
-        boton1.setMnemonic('a');//Establecemos que se pulse cuando alt+a
-        }
-        
-        
-    }
-     */
+
     private void colocarPanel() {
         panel = new JPanel();
         gola = new JPanel();
@@ -218,17 +211,5 @@ public class Ventana extends JFrame {
         this.getContentPane().add(panel);
     }
 
-    private void colocarEtiquetas() {
 
-        //panel.setBackground(Color.GREEN);
-        JLabel etiqueta = new JLabel();
-        etiqueta.setText("Hola");
-        panel.add(etiqueta);
-
-        ImageIcon imagen = new ImageIcon("C:\\Users\\Ginkgo\\Documents\\NetBeansProjects\\Busca_Minas\\src\\busca_minas\\bm.jpg");
-        JLabel etiqueta2 = new JLabel();
-        etiqueta2.setBounds(100, 50, 100, 50);
-        etiqueta2.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(100, 50, Image.SCALE_SMOOTH)));
-        panel.add(etiqueta2);
-    }
 }

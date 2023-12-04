@@ -18,7 +18,8 @@ public class Casilla extends Button {
     private boolean abierto;
     private boolean marcado;
     private int contador_minas;
-    
+    private int fila;
+    private int col;
 
     public Casilla(boolean mina, boolean abierto, int contador_minas) {
         this.mina = mina;
@@ -27,12 +28,13 @@ public class Casilla extends Button {
         this.marcado = false;
     }
 
-    public Casilla() {
+    public Casilla(int fila,int col) {
         this.mina = false;
         this.abierto = false;
         this.marcado = false;
         this.contador_minas = 0;
-        
+        this.fila=fila;
+        this.col=col;
     }
 
       
@@ -83,8 +85,10 @@ public class Casilla extends Button {
 
     @Override
     public String toString() {
-        return "Casilla{" + "mina=" + mina + ", abierto=" + abierto + ", contador_minas=" + contador_minas + '}';
+        return "Casilla{" + "mina=" + mina + ", abierto=" + abierto + ", marcado=" + marcado + ", contador_minas=" + contador_minas + ", fila=" + fila + ", col=" + col + '}';
     }
+
+
 
     
     
